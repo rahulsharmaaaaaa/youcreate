@@ -37,7 +37,7 @@ export interface Topic {
 }
 
 export interface Question {
-  id: number;
+  id: number | string; // Support both serial and UUID
   topic_id: number;
   question_statement: string;
   question_type: string;
@@ -48,11 +48,15 @@ export interface Question {
 }
 
 export interface Video {
-  id?: number;
+  id?: string; // UUID
   course_id?: number;
-  question_id?: number;
+  question_id?: number | string; // Support both serial and UUID
   script?: string;
+  audio_url?: string;
+  captions_data?: any;
   video_url?: string;
+  template_id?: number;
   status?: string;
   created_at?: string;
+  updated_at?: string;
 }
